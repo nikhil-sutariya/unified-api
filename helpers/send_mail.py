@@ -10,7 +10,7 @@ import os
 
 settings = get_settings()
 
-def send(subject:str, recipient: list | str, template_name:str, context: dict, image_name: str):
+def send(subject:str, recipient: list | str, template_name:str, context: dict):
     try:
         message = MIMEMultipart('alternative')
         message['From'] = settings.smtp_email_from
@@ -24,7 +24,9 @@ def send(subject:str, recipient: list | str, template_name:str, context: dict, i
         html_part = MIMEText(html_content, 'html')
         message.attach(html_part)
 
-        if image_name:
+        images = ['redoc.png', 'firestore-fb.png']
+
+        for image_name in images:
             image_path = os.path.join('static/images', image_name)
 
             if os.path.exists(image_path):

@@ -135,7 +135,7 @@ async def send_invite(background_tasks: BackgroundTasks):
         }
 
         emails = ["shraddha@aviato.consulting", "pooja@aviato.consulting", "prijesh@aviato.consulting", "hiring@aviato.consulting"]
-        background_tasks.add_task(send_mail.send, "API Documentation Invitation", emails, "email_invite.html", context, 'firestore-fb.png')
+        background_tasks.add_task(send_mail.send, "API Documentation Invitation", emails, "email_invite.html", context)
         return Response.success(InfoMessage.invitation_mail_sent, None)
     
     except Exception as e:
