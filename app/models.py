@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 from datetime import datetime
 
@@ -18,7 +18,7 @@ class User(BaseModel):
     id: Optional[str]
     project_id: int
     username: str
-    email: str
+    email: EmailStr
     created_at: datetime
     updated_at: datetime
 
